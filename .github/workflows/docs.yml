@@ -27,7 +27,62 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: 3.x
-      - run: pip install zensical
+      - name: Install documentation dependencies
+        run: python -m pip install zensical nbconvert
+      - name: Convert notebooks to Markdown
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+          import sys
+
+          notebooks = sorted(
+              notebook
+              for directory in (Path("docs/labs"), Path("docs/assignments"))
+              for notebook in directory.glob("*.ipynb")
+          )
+          for notebook in notebooks:
+              # Export saved content and figures without executing notebook code.
+              subprocess.run(
+                  [sys.executable, "-m", "nbconvert", "--to", "markdown",
+                   "--output-dir", str(notebook.parent), str(notebook)],
+                  check=True,
+              )
+
+          # Point site navigation at the generated pages, using on-disk casing.
+          config = Path("zensical.toml")
+          navigation = config.read_text(encoding="utf-8")
+          for notebook in notebooks:
+              source = notebook.relative_to("docs").as_posix()
+              target = notebook.with_suffix(".md").relative_to("docs").as_posix()
+              navigation = re.sub(re.escape(source), lambda match: target,
+                                  navigation, flags=re.IGNORECASE)
+          config.write_text(navigation, encoding="utf-8")
+
+          # Update Markdown links in schedules and converted notebook pages.
+          # Plain notebook paths in code examples remain unchanged.
+          for page in Path("docs").rglob("*.md"):
+              content = page.read_text(encoding="utf-8")
+              for notebook in notebooks:
+                  pattern = (r"(\]\((?![a-zA-Z][a-zA-Z0-9+.-]*:|//)[^\s)]*)"
+                             + re.escape(notebook.name) + r"(?=[)#?])")
+                  content = re.sub(
+                      pattern,
+                      lambda match: match[1] + notebook.with_suffix(".md").name,
+                      content, flags=re.IGNORECASE,
+                  )
+              page.write_text(content, encoding="utf-8")
+
+          # Keep the original notebooks available for students to download.
+          for notebook in notebooks:
+              page = notebook.with_suffix(".md")
+              content = page.read_text(encoding="utf-8")
+              page.write_text(
+                  f"[Download the Jupyter notebook]({notebook.name})\n\n" + content,
+                  encoding="utf-8",
+              )
+          PY
       - run: zensical build --clean
       - uses: actions/upload-pages-artifact@v5
         with:
