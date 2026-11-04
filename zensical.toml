@@ -25,7 +25,7 @@ nav = [
     {"Week 11 (11/13) - Community composition across space" = "schedule/week-11.md"},
     {"Week 12 (11/20) - Ordination, gradients, evolutionary diversity" = "schedule/week-12.md"},
     {"Week 13 (12/04) - Generalized Dissimilarity Modeling (GDM)" = "schedule/week-13.md"},
-    {"Week 14 (12/11) - tbd" = "schedule/week-14.md"},
+    {"Week 14 (12/11) - Final Project Presentations" = "schedule/week-14.md"},
   ]},
   {"Lectures" = [
     {"Week 5 (10/02) - Raster Data" = "lectures/Lecture05-RasterData.html"},
@@ -47,6 +47,8 @@ nav = [
     {"Week 6 (10/09) - Basic SDMs" = "labs/Lab06-FirstPrinciplesSDM.ipynb"},
     {"Week 7 (10/16) - Machine learning SDMs" = "labs/lab07-MachineLearningSDM.ipynb"},
     {"Week 8 (10/23) - SDM software" = "labs/Lab08-SDM-Software.ipynb"},
+    {"Week 9 (10/30) - Gradient Forest" = "labs/Lab09-GradientForest.ipynb"},
+    {"Week 10 (11/06) - Community composition and SLOSS" = "labs/Lab10-CommunityComposition.ipynb"},
   ]},
   {"Assignments" = [
     {"Overview" = "assignments/index.md"},

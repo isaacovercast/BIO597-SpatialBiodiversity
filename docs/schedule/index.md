@@ -17,11 +17,11 @@ hide:
 | [Week 7 (10/16)](week-07.md) | Species distribution modeling (Random Forest) | scikit-learn, rasterio, pandas | Build a first SDM from scratch w/ ML |
 | [Week 8 (10/23)](week-08.md) | Exploring SDM software | Running 'production grade' SDMs | Build and compare distribution models |
 | [Week 9 (10/30)](week-09.md) | Gradient Forest: SDMs for genomic data | pyGF | Perform an SDM-like analysis with SNP to estimate environmental correlates of genetic turnover |
-| [Week 10 (11/06)](week-10.md) | Measuring Spatial Biodiversity Patterns | numpy, pandas, scipy, scikit-learn | Quantify biodiversity across spatial scales |
+| [Week 10 (11/06)](week-10.md) | Quantifying community composition | numpy, pandas, scipy, scikit-learn | Comparing biodiversity patterns for one large vs several small reserves |
 | [Week 11 (11/13)](week-11.md) | Community composition across space | pandas, scipy, scikit-learn, GeoPandas | Analyze beta diversity and distance decay |
 | [Week 12 (11/20)](week-13.md) | Ordination, gradients, and evolutionary diversity | scikit-learn, scipy, matplotlib | Compare geographic, environmental, and diversity spaces |
-| [Week 13 (12/04)](week-13.md) | tbd | tbd | tbd |
-| [Week 14 (12/11)](week-14.md) | tbd | tbd | tbd |
+| [Week 13 (12/04)](week-13.md) | Generalized Dissimilarity Modeling (GDM) | gdm | Evaluating community composition turnover and environment |
+| [Week 14 (12/11)](week-14.md) | Wrap-up and Final Project presentations | NA | Wrapping up |
 
 
 ??? note "Course topic scratch pad"
