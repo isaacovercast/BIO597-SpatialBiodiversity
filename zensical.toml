@@ -27,6 +27,14 @@ nav = [
     {"Week 13 (12/04) - tbd" = "schedule/week-13.md"},
     {"Week 14 (12/11) - tbd" = "schedule/week-14.md"},
   ]},
+  {"Lectures" = [
+    {"Week 5 (10/02) - Raster Data" = "lectures/Lecture05-RasterData.html"},
+    {"Week 6 (10/09) - Tour of GitHub" = "lectures/Lecture-GitHubTour.html"},
+    {"Week 6 (10/09) - SDMs from First Principles" = "lectures/Lecture06-FirstPrinciplesSDM.html"},
+    {"Week 7 (10/16) - SDMs w/ Machine Learning" = "lectures/Lecture07-MachineLearningSDM.html"},
+    {"Week 8 (10/23) - elapid - A python SDM package" = "lectures/Lecture08-SDM-Software.html"},
+    {"Week 9 (10/30) - GradientForest - SDM for genetics" = "lectures/Lecture09-GradientForest.html"},
+  ]},
   {"Labs" = [
     {"Week 1 (09/04) - Intro & Geopandas" = [
         {"Git Setup" = "labs/lab-01-GitSetup.md"},
