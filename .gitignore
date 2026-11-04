@@ -10,3 +10,4 @@ docs/labs/bioclim
 !docs/data/amphibians+bioclim.geojson
 !docs/data/amphibians.geojson
 docs/labs/_*.ipynb
+docs/labs/EasternSnakes/*
