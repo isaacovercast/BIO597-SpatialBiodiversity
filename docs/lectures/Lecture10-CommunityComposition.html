@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Community diversity and conservation for BIO597 Lab10: SLOSS, richness, Shannon diversity, evenness, alpha/beta/gamma, Jaccard, Bray–Curtis, rarefaction, endemism and rarity.">
+<title>Lecture 10: Community Composition and Conservation</title>
+<link rel="stylesheet" href="reveal.js/dist/reset.css">
+<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+<link rel="stylesheet" href="reveal.js/dist/plugin/highlight/monokai.css">
+<style>
+:root { --ink:#18212b; --muted:#52606d; --paper:#f7f8f6; --teal:#087e8b; --coral:#d95d39; --line:#ccd3d7; }
+body { background:var(--paper); }
+.reveal { color:var(--ink); font-family:Inter,"Avenir Next",Avenir,"Helvetica Neue",Arial,sans-serif; font-size:34px; }
+.reveal .slides { text-align:left; }
+.reveal .slides section { box-sizing:border-box; padding:48px 72px; height:810px; }
+.reveal h1,.reveal h2,.reveal h3 { color:var(--ink);font-family:inherit;letter-spacing:0;text-transform:none;font-weight:700; }
+.reveal h1 { font-size:2.05em;line-height:1.04;margin:0 0 .4em; }
+.reveal h2 { font-size:1.36em;line-height:1.1;margin:0 0 .48em; }
+.reveal p,.reveal li { line-height:1.35; }
+.reveal p { margin:0 0 .7em; }
+.reveal strong,.teal { color:var(--teal); }
+.coral { color:var(--coral); }
+.reveal a { color:var(--teal);text-decoration:underline;text-underline-offset:4px; }
+.reveal code { font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace; }
+.reveal pre { width:100%;margin:24px 0;box-shadow:none;font-size:.64em;line-height:1.5; }
+.reveal pre code { padding:24px;border-left:7px solid var(--teal);max-height:350px; }
+.reveal .slide-number { right:24px;bottom:18px;color:var(--muted);background:transparent;font-size:18px; }
+.reveal .progress { color:var(--teal);height:5px; }
+.reveal .controls { color:var(--teal); }
+.kicker { color:var(--coral);font-size:.58em;font-weight:800;letter-spacing:.08em;margin-bottom:.65em;text-transform:uppercase; }
+.subtitle { color:var(--muted);font-size:.85em; }
+.course-mark { border-top:5px solid var(--teal);color:var(--muted);font-size:.54em;margin-top:2em;padding-top:.7em;max-width:470px; }
+.two-col { display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center; }
+.cover .two-col { grid-template-columns:.95fr 1.05fr; }
+.image-wide { width:100%;height:445px;display:flex;align-items:center;justify-content:center; }
+.image-chart { max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block; }
+.cover .image-wide { height:590px; }
+.visual-takeaway { font-size:.82em;line-height:1.3!important;margin:15px 0 0!important; }
+.caption { font-size:.57em;color:var(--muted);line-height:1.3!important;margin-top:12px!important; }
+.small { font-size:.79em; }
+.muted { color:var(--muted); }
+.formula { background:#e8f0ef;padding:25px 30px;font-size:1.08em;margin:26px 0; }
+.callout { border-left:8px solid var(--coral);font-size:.85em;padding:.25em 0 .25em .8em;margin-top:24px!important; }
+.question { font-size:1.1em;font-weight:700;line-height:1.3!important; }
+.reveal ul,.reveal ol { margin:15px 0 0 1.05em; }
+.reveal li { margin-bottom:23px; }
+.reveal table { width:100%;border-collapse:collapse;font-size:.85em;margin:24px 0; }
+.reveal th,.reveal td { text-align:left;padding:19px 17px;border-bottom:2px solid var(--line);font-variant-numeric:tabular-nums; }
+.reveal th { color:var(--muted);font-size:.86em; }
+.reveal .compact-table { font-size:.76em; }
+.reveal .compact-table td,.reveal .compact-table th { padding:16px; }
+.card { padding:28px 32px;background:#ffffff;border:2px solid var(--line); }
+.card h3 { font-size:1em;margin:0 0 22px; }
+.card p { font-size:.82em; }
+.big-number { color:var(--teal);font-size:2.7em;font-weight:800;line-height:1.1!important; }
+.reveal .source-list { font-size:.72em; }
+.reveal .source-list li { margin-bottom:24px; }
+.reveal .lab-steps { font-size:.92em; }
+.reveal .lab-steps li { margin-bottom:27px; }
+@media print { .reveal .slides section { overflow:visible; } }
+</style></head><body>
+<div class="reveal"><div class="slides">
+
+<section id="title" class="cover">
+<div class="two-col"><div>
+<div class="kicker">Lab 10 · November 6, 2026</div>
+<h1>Community composition</h1>
+<p class="subtitle">Today you are a hypothetical land manager with a mission to conserve biodiversity.</p>
+<p class="small">How do we quantify spatial biodiversity patterns to answer questions about conservation?</p>
+<div class="course-mark">BIO597 Spatial Analysis of Biodiversity</div>
+</div><div><div class="image-wide"><img class="image-chart" src="assets/Lecture10-parks.png" alt="The four imaginary Lab10 parks in southwestern Maine, with recorded and simulated amphibian occurrences. SL is larger than SS1, SS2 and SS3; the inset locates them within Maine."></div></div></div>
+<aside class="notes">Allow about 45–50 minutes with discussion, or move quickly through the worked calculations for a shorter introduction. Students have mapped occurrence points and modeled distributions. Today the response becomes an entire community, and the conservation question determines which summary matters. The map is generated from the current ME_ImaginaryParks.geojson; it is not a map of real protected areas. All subsequent animal-icon examples and counts are invented unless explicitly labeled as lab data. Press S for presenter notes. Figure provenance and rebuild instructions are linked at the end.</aside>
+</section>
+
+<section id="sloss">
+<div class="kicker">The organizing question</div>
+<h2>Single Large or Several Small: SLOSS</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-sloss.svg" alt="One 1000 square kilometer park is compared with three smaller parks of 400, 300 and 300 square kilometers. Circle areas are proportional to protected area."></div>
+<p class="visual-takeaway">Equal area gives us a comparison. There is still huge debate about the right strategy.</p>
+<p class="caption">A long-running conservation debate: <a href="https://doi.org/10.1126/science.191.4224.285">Simberloff &amp; Abele (1976)</a>.</p>
+<aside class="notes">Ask for a show of hands before introducing any metric. What assumptions motivated each choice? Larger continuous habitat may support processes and populations that small patches cannot; separated reserves may capture different environments and species. These are hypotheses to evaluate, rather than universal rules. Simberloff and Abele challenged the inference that one largest possible refuge must always be best. This lecture does not settle the broader fragmentation debate. The three circle areas sum exactly to the large circle area; distances and habitat quality in this schematic have no quantitative meaning.</aside>
+</section>
+
+
+<section id="objectives">
+<div class="kicker">Define the conservation objective</div>
+<h2>“More biodiversity” can mean several things</h2>
+<table>
+<thead><tr><th>If the goal is…</th><th>We need to examine…</th></tr></thead>
+<tbody>
+<tr><td>Conserve more species</td><td>Species richness</td></tr>
+<tr><td>Avoid dominance by a few species</td><td>Abundance distributions (Entropy and evenness)</td></tr>
+<tr><td>Capture different communities</td><td>Beta diversity (turnover)</td></tr>
+<tr><td>Protect rare species</td><td>Endemism and range information</td></tr>
+</tbody></table>
+<p class="callout">Identify the conservation goal before choosing the focal biodiversity index.</p>
+<aside class="notes">These objectives overlap but can rank sites differently. Species identity matters as well: a network can be species rich while missing a focal threatened species. High Shannon diversity is not inherently the goal of every conservation program. A naturally dominated community can still be valuable. Today we will make each measure concrete and use differences among measures to ask better biological questions. Demographic persistence, threat reduction and habitat quality require information beyond these indices.</aside>
+</section>
+
+<section id="study-area">
+<div class="kicker">The lab landscape</div>
+<h2>Imaginary parks and amphibian records in Maine</h2>
+<div class="image-wide" style="height:500px"><img class="image-chart" src="assets/Lecture10-study-area.png" alt="A statewide Maine map locates the four imaginary Lab10 parks. An enlarged view shows SL, SS1, SS2 and SS3 with black occurrence points only inside their boundaries."></div>
+<p class="caption">Teal: one large park (1,000 km²). Brown: three small parks (400 + 300 + 300 km²).<br>Black points: original and simulated occurrence records within park boundaries.</p>
+<aside class="notes">This map uses the actual park polygons and occurrence records from Lab10's ME_ImaginaryParks.geojson. The left panel supplies the statewide context; the right panel shows all four parks without an inset covering any park. Only points intersecting the park boundaries are displayed. SL is Alder Basin Preserve; SS1 is Fern Hollow Woods; SS2 is Coldwater Ridge Preserve; SS3 is Spruce Lantern Reserve. The parks are fictional, and the points include both original observations and generated records, including invented species. Each point already has its park ID. The next slide summarizes these park-assigned records as a community matrix, using a small invented example to make the structure readable.</aside>
+</section>
+
+<section id="matrix">
+<div class="kicker">Site-by-species matrix</div>
+<h2>One row per 'community'; one column per species</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-matrix.svg" alt="A toy count matrix for parks 1 through 4 and species A through E. Rows are 8,4,0,0,0; 8,4,3,0,0; 8,0,0,12,0; and 8,0,0,0,2."></div>
+<p class="visual-takeaway">You can quantify communities using either presence/absence or species abundance, they answer different questions.</p>
+<aside class="notes">Read Park 2 aloud: eight A records, four B records and three C records. Its richness is three, and it has fifteen total records. The same column order must be retained when comparing any rows. Convert positive counts to True for a species-list comparison. A zero can represent true absence, lack of observation or failure to detect. A row of all zeros contains no information for estimating a community's Shannon diversity; do not interpret an empty record set as a confidently species-free park. These are toy counts, not the actual lab matrix. Animal icons are stylized labels; species sharing an icon silhouette are still different species when their letters differ.</aside>
+</section>
+
+<section id="richness">
+<div class="kicker">Species richness (S)</div>
+<h2>The most basic measure of community diversity</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-richness.svg" alt="Amphibian icons represent individual records. Park 1 has eight A icons and four B icons: twelve records of two species. Park 2 has eight A, four B and three C icons: fifteen records of three species."></div>
+<p class="visual-takeaway">Richness is simple to interpret, but obviously communities with the same richness can be very different in other meaningful ways.</p>
+<aside class="notes">Each animal icon represents one occurrence record; letters and colors distinguish the invented species. Count the different species, rather than the icons. Additional A records would not increase observed richness, because A is already recorded. One C record in Park 1 would increase its richness to three. Richness ignores how records are divided among recorded species and ignores identities when reduced to a scalar. Two parks can each have richness three while containing entirely different species. Richness can also increase with sampling: more records often discover additional species. We will return to that problem before choosing a reserve strategy.</aside>
+</section>
+
+<section id="shannon-intuition">
+<div class="kicker">Entropy / Shannon diversity (H')</div>
+<h2>How similar are species in their abundances?</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-evenness.svg" alt="Thirty amphibian icons in each of two communities. The even community has ten records each of three species; the dominated community has counts 28,1,1. Both have richness three, with Shannon values 1.099 and 0.291."></div>
+<p class="visual-takeaway">How uncertain would you be about the species of a randomly chosen record?</p>
+<aside class="notes">In the even community, all three species are equally plausible on a random draw. In the dominated community, guessing the dominant species is usually correct. Shannon entropy quantifies that uncertainty. Both richness and balance influence it. In standardized counts of individuals, proportions can represent relative abundance; in this lab they represent relative frequencies of occurrence records. A conspicuous, accessible or heavily reported species can dominate records without dominating the animal community. These values use natural logarithms.</aside>
+</section>
+
+<!--
+<section id="shannon-calculation">
+<div class="kicker">A small amount of math</div>
+<h2>Shannon combines the species proportions</h2>
+<p class="formula">H′ = −Σ p<sub>i</sub> ln(p<sub>i</sub>) &nbsp; where &nbsp; p<sub>i</sub> = count<sub>i</sub> / total count</p>
+<p class="small">For [10, 10, 10], each proportion is ⅓ and H′ = ln(3) ≈ 1.099.</p>
+<pre><code class="language-python">from scipy.stats import entropy
+
+entropy([10, 10, 10])   # 1.099
+entropy([28, 1, 1])     # 0.291</code></pre>
+<p class="small">SciPy converts counts to proportions and uses natural logs by default.</p>
+<p class="caption">Implementation: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html">scipy.stats.entropy</a>.</p>
+<aside class="notes">Explain the proportions before discussing the logarithm. Each species contributes its frequency multiplied by its information content, with the minus sign producing a nonnegative value. The limiting contribution of a zero proportion is zero. No manual implementation is needed in the lab. Proportionally multiplying all counts by the same positive number leaves Shannon unchanged; adding records to just one species generally changes it. Natural-log units are called nats. Avoid treating an entropy difference as a direct difference in number of species.</aside>
+</section>
+-->
+
+<section id="effective-species">
+<div class="kicker">'Effective species' and evenness</div>
+<h2>Bringing more biological interpretability and comparability across sites</h2>
+<p class="formula">Effective species = exp(H′) &nbsp;&nbsp; Evenness = exp(H′) / S</p>
+<table><thead><tr><th>Counts</th><th>Richness S</th><th>exp(H′)</th><th>Evenness</th></tr></thead><tbody>
+<tr><td>10, 10, 10</td><td>3</td><td>3.00</td><td>1.00</td></tr>
+<tr><td>28, 1, 1</td><td>3</td><td>1.34</td><td>0.45</td></tr>
+</tbody></table>
+<p class="small">Shannon diversity is not comparable across sites with different richness. Scaling H' by S gives evenness, which is directly comparable.</p>
+<p class="small">The dominated community has the same Shannon diversity as about <strong>1.34 equally frequent species</strong>.</p>
+<aside class="notes">The effective count is a comparison with an idealized equally frequent community, not a claim that fractional species were observed. Dividing by richness gives one when all recorded species are equally frequent and a lower value under dominance. This is exp(H)/S, rather than the also-common Pielou measure H/log(S). Keep the name tied to the formula students actually use. Richness is still three in both rows. Empty record sets do not supply an estimable evenness value. Source: Jost explains why transforming entropy into effective numbers gives a more intuitive diversity scale.</aside>
+</section>
+
+<section id="alpha-beta-gamma">
+<div class="kicker">Quantifying diversity at different scales; Alpha, Beta, and Gamma Diversity</div>
+<h2>We want to measure diversity in ways that capture local AND global patterns, and differences among local sites.</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-alpha-beta.svg" alt="Two networks each have three parks with richness three. Identical A B C lists give gamma three and beta one. Lists A B C, A D E, A F G give gamma seven and beta 2.33."></div>
+<p class="visual-takeaway">Alpha (α) = local richness. Gamma (γ) = global richness. Beta (β; Average turnover) = γ / mean α.</p>
+<p class="visual-takeaway">Larger β values indicate more unique local communities.</p>
+<aside class="notes">Walk through the repeated network first. Adding more copies of ABC does not add species to the pooled list. In the complementary network, A is in all parks while B through G are each in one. The sum of park richnesses is nine in both networks, but gamma is three versus seven. Multiplicative beta is one versus seven thirds. These definitions use richness, with parks weighted equally when averaging alpha. Beta diversity is a family of ideas and measures; state the definition rather than treating every beta index as numerically interchangeable.</aside>
+</section>
+
+<section id="jaccard">
+<div class="kicker">Pairwise beta-diversity (presence/absence)</div>
+<h2>Jaccard Dissimilarity: How much do species lists differ between sites?</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-jaccard.svg" alt="Park X has A B C, and Y has A C D. Two species are shared and four occur in the union, giving Jaccard dissimilarity one minus two quarters, or 0.5."></div>
+<p class="visual-takeaway">Dissimilarity = 1 − shared / union.   Identical lists = 0. No shared species = 1.</p>
+<p class="caption">Use presence/absence with <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.jaccard.html">scipy.spatial.distance.jaccard</a>.</p>
+<aside class="notes">Students can count the shared and union species directly from the figure. A species absent from both lists is excluded from the union and does not make the parks more similar. A rare species recorded once contributes to this presence/absence comparison just as much as a commonly recorded species. Keep the same species-column order for both vectors. SciPy returns dissimilarity rather than similarity. If both parks have no records, a software convention of zero distance supplies no biological evidence of identical communities.</aside>
+</section>
+
+
+<section id="bray-curtis">
+<div class="kicker">Pairwise beta-diversity (abundance)</div>
+<h2>Bray–Curtis Dissimilarity accounts for differences in abundance</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-bray-curtis.svg" alt="Stacked count bars show 8,1,1 and 1,8,1 for the same three species. Jaccard is zero, while Bray Curtis is fourteen divided by twenty, or 0.7."></div>
+<p class="visual-takeaway">Bray–Curtis = Σ |a<sub>i</sub> − b<sub>i</sub>| / Σ (a<sub>i</sub> + b<sub>i</sub>)</p>
+<p class="caption">Nonnegative counts; at least one record overall. <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.braycurtis.html">scipy.spatial.distance.braycurtis</a>.</p>
+<aside class="notes">Both parks contain the same three species, so Jaccard is zero. Species A differs by seven records, B by seven, and C by zero. Dividing fourteen by the twenty total records gives 0.7. For nonnegative vectors with positive combined total, Bray–Curtis lies between zero and one. Zero means identical count vectors; one means no species with positive counts shared. A pair of all-zero vectors has an undefined denominator. The species colors match the icon legend. These invented records illustrate count differences, not inferred animal abundance.</aside>
+</section>
+
+<section id="rarefaction">
+<div class="kicker">Differential sampling affects observed richness</div>
+<h2>Sample-based rarefaction: Resample to the same number of occurrence data points</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-rarefaction.png" alt="Exact toy rarefaction curves. Community A has 100 records and four equally recorded species. B has 200 records, with 195 of one species and one each of five others. At 100 records, expected richness is four for A and 3.5 for B, despite B's full observed richness of six."></div>
+<p class="visual-takeaway">Sites with more occurrences may be more species rich because of differential sampling effort. Rarefaction is one way to evaluate sensitivity to this.</p>
+<aside class="notes">These are exact expected richness curves under uniform record draws without replacement, not fitted lab results. At 100 records, A contains its whole sample and therefore all four species. Each singleton in B has a one-half chance of being drawn, while the dominant species is certain to occur, giving one plus five halves, or 3.5. At all 200 records, B has six species. The example shows that dominance and sample size both matter. The lab instead approximates common-size comparisons by repeated draws. Its quantiles summarize draws rather than confidence intervals for true richness. Repeated occurrences need not be independent individuals, so call this record-based rarefaction.</aside>
+</section>
+
+<section id="endemism">
+<div class="kicker">A different conservation objective</div>
+<h2>Endemism means geographic restriction</h2>
+<div class="two-col"><div class="card"><h3>Full geographic range</h3><p>Is a species restricted to Maine, an island, or another named region?</p><p>Requires evidence about its distribution beyond the focal parks.</p></div><div class="card"><h3>Restriction in our sample</h3><p>In how many of these four parks has a species been recorded?</p><p>A useful proxy, with a much narrower interpretation.</p></div></div>
+<p class="callout">“Recorded only in Park 2” does not establish “endemic to Park 2.”</p>
+<p class="caption">Reference extent matters: <a href="https://doi.org/10.1038/s41467-020-15921-6">Daru et al. (2020)</a>, this week's discussion paper.</p>
+<aside class="notes">A species can be endemic to a broad region while common within that region. A species found in only one sampled park can also be widespread outside the park network. Daru and colleagues examined how endemism patterns depend on the scope and definition of the analysis. For today's lab, focus on explicitly naming the reference set; spatial aggregation and moving-window analyses belong to the later lab. We have occurrence frequencies in four unequal-area parks, not complete geographic range sizes. Use sample-exclusive and endemism proxy when interpreting these results.</aside>
+</section>
+
+<section id="weighted-endemism">
+<div class="kicker">Weighted endemism proxy</div>
+<h2>Give more weight to species in fewer parks</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-occupancy.svg" alt="A presence matrix shows A in four parks, B in two parks, and C D E in one each. Inverse occupancy weights are 0.25, 0.5, 1, 1 and 1."></div>
+<p class="visual-takeaway">For a park: WE = sum of 1/r for its species; r = number of parks recording that species.</p>
+<p class="caption">Toy park occupancy, not full range size. Range-weighted approach: <a href="https://doi.org/10.1046/j.1365-2699.2001.00524.x">Crisp et al. (2001)</a>.</p>
+<aside class="notes">Keep the reference set of four parks fixed. Every species in a park contributes something, but a one-park species contributes four times as much as a four-park species. A's abundance of eight in each park does not enter this weight. WE is a sum, so it can increase by adding species even if those species are widespread. Published geographic WE commonly weights by occupied geographic units across a broader range. Our park-based version is a proxy; units differ in area and the available occurrences do not constitute complete range maps. The formula teaches the inverse-occupancy logic without claiming calibrated regional endemism.</aside>
+</section>
+
+<section id="corrected-we">
+<div class="kicker">Weighted versus corrected weighted endemism</div>
+<h2>A sum and an average can rank parks differently</h2>
+<table><thead><tr><th>Toy park</th><th>Species</th><th>WE</th><th>CWE = WE / S</th></tr></thead><tbody>
+<tr><td>Park 2</td><td>A, B, C</td><td>0.25 + 0.50 + 1 = <strong>1.75</strong></td><td>0.58</td></tr>
+<tr><td>Park 3</td><td>A, D</td><td>0.25 + 1 = 1.25</td><td><strong>0.625</strong></td></tr>
+</tbody></table>
+<p><strong>WE:</strong> total contribution of richness and restriction.</p>
+<p><strong>CWE:</strong> mean restriction weight of the species recorded.</p>
+<p class="question">Would adding a widespread species necessarily improve CWE?</p>
+<aside class="notes">No. Adding a species with a weight below the current average increases WE while decreasing CWE. Park 2 has the larger sum, but Park 3 has a larger average restriction weight. Neither is a universally superior conservation score. CWE is not an independent estimate of range rarity and does not automatically remove sampling bias. The worked values use the same matrix as the preceding slides. Crisp et al. 2001 introduced the correction to help distinguish endemism patterns from species richness; keep that distinction tied to the conservation objective.</aside>
+</section>
+
+<section id="reference-extent">
+<div class="kicker">Keep the reference explicit</div>
+<h2>New records outside the network change the weight</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-extent.svg" alt="Species C is initially recorded in one of four parks, giving weight one. Three additional surveyed parks also record C, giving occupancy four and weight one quarter in the expanded reference."></div>
+<p class="visual-takeaway">The focal park did not lose C. Our knowledge of C's distribution changed.</p>
+<p class="caption">Hypothetical additional surveys. Endemism depends on the stated reference: <a href="https://doi.org/10.1038/s41467-020-15921-6">Daru et al. (2020)</a>.</p>
+<aside class="notes">The left view has four surveyed parks; the right adds three parks, all recording C. Its observed occupancy therefore increases from one to four. The denominator is occupied parks, not the total number of parks: its new weight is one quarter, not one seventh. A newly surveyed park with no C record would not by itself change C's inverse occupancy. This is an illustration of changing information and reference extent. It does not establish a full geographic range. Keep the reference fixed when comparing WE or CWE values within an analysis.</aside>
+</section>
+
+<section id="rarity">
+<div class="kicker">Rarity is not a single property</div>
+<h2>Few records and narrow ranges are different</h2>
+<table><thead><tr><th>Toy species</th><th>Total records</th><th>Parks recorded</th><th>Record-rare?</th></tr></thead><tbody>
+<tr><td>A</td><td>32</td><td>4</td><td>No</td></tr>
+<tr><td>C</td><td>3</td><td>1</td><td>Yes</td></tr>
+<tr><td>D</td><td>12</td><td>1</td><td>No</td></tr>
+<tr><td>E</td><td>2</td><td>1</td><td>Yes</td></tr>
+</tbody></table>
+<p class="small">Lab definition: <strong>record-rare = at most five records</strong> across all four parks.</p>
+<p class="callout">Reporting rarity is not population rarity, geographic restriction, or threat status.</p>
+<aside class="notes">C and D are both sample-exclusive, but only C is record-rare. E also meets both conditions. A hypothetical species with one record in every park would be record-rare while having the maximum park occupancy, demonstrating the opposite combination. The threshold of five is a teaching choice, not a biological boundary or conservation designation. A low count might reflect low abundance, poor detectability, little reporting or the simulation's allocation. Some invented species have only a few points by design. Ask students how changing the threshold to ten would affect the species counted and whether that should change their conservation recommendation.</aside>
+</section>
+
+<section id="recommendation">
+<div class="kicker">Return to the conservation question</div>
+<h2>Build a recommendation from several lines of evidence</h2>
+<table class="compact-table"><thead><tr><th>Evidence</th><th>Question for the recommendation</th></tr></thead><tbody>
+<tr><td>Pooled richness and complementarity</td><td>Which species would each strategy represent?</td></tr>
+<tr><td>Shannon and evenness</td><td>How much does record dominance affect the comparison?</td></tr>
+<tr><td>Jaccard and Bray–Curtis</td><td>Do lists, counts and relative frequencies tell the same story?</td></tr>
+<tr><td>Common-size resampling</td><td>Does the ranking persist at equal record numbers?</td></tr>
+<tr><td>Restriction and record rarity</td><td>Which otherwise missed species might matter?</td></tr>
+</tbody></table>
+<p class="small">Explain disagreements among metrics; they often reveal different biological priorities.</p>
+<aside class="notes">Avoid combining all indices into an unexplained score. A strong recommendation states its objective, identifies species gained or missed, reports numerical evidence and explains uncertainty. If one strategy has greater gamma while another has higher CWE, that is not a mathematical contradiction. It is a choice between total representation and average restriction under the chosen proxy. A focal-species protection objective could justify a different choice again. The records cannot tell us which outcome the community or society should value most.</aside>
+</section>
+
+<section id="persistence">
+<div class="kicker">Representation is one part of conservation</div>
+<h2>Presence today does not guarantee persistence</h2>
+<ul>
+<li>Does each park contain breeding and nonbreeding habitat?</li>
+<li>Can populations recruit, survive and move among suitable sites?</li>
+<li>How do disturbance, disease, land use and future climate affect them?</li>
+</ul>
+<p class="callout">A diversity table supports a reserve comparison. A real decision also needs habitat and demographic evidence.</p>
+<p class="caption">Life-cycle habitat motivation: <a href="https://doi.org/10.1046/j.1523-1739.2003.02177.x">Semlitsch &amp; Bodie (2003)</a>.</p>
+<aside class="notes">Return to the pond and forest example. Occurrences within a proposed boundary do not establish protection of every habitat needed to complete a life cycle, a viable population, or functional connectivity. These are candidate questions for field research, not effects estimated by the exercise. Students should be able to name a concrete next measurement, such as repeated breeding surveys, survival or recruitment estimates, habitat condition, or movement across roads. The imaginary polygons and empirical-template simulation intentionally isolate a tractable representation exercise.</aside>
+</section>
+
+<section id="lab-workflow">
+<div class="kicker">Into Lab10</div>
+<h2>From a reserve map to an ecological argument</h2>
+<ol class="lab-steps">
+<li>Map the parks and check the area budget.</li>
+<li>Build the park × species community matrix.</li>
+<li>Compare diversity, complementarity and dissimilarity.</li>
+<li>Check record totals, rarity and restriction.</li>
+<li>Recommend a strategy and name the missing evidence.</li>
+</ol>
+<p class="caption"><a href="../labs/Lab10-CommunityComposition.ipynb">Open Lab10</a> · <a href="../data/ME_ImaginaryParks.md">Dataset construction and assumptions</a></p>
+<aside class="notes">Keep implementation simple: reuse the diversity and restriction functions, use scipy.stats.entropy for Shannon, and scipy.spatial.distance.jaccard and braycurtis for the two dissimilarities. The park labels are already stored on the points, so no runtime spatial join is needed. Pool the three small-park count rows before computing their gamma richness; do not sum their richnesses. Students should preserve species identity in their interpretation rather than discussing only scalar indices. This lecture deliberately leaves the lab's metric results for students to discover.</aside>
+</section>
+
+<section id="shape-extension">
+<div class="kicker">A related conservation question</div>
+<h2>What if we hold park number equal and change shape?</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-shapes.svg" alt="Two compact blobs and two elongated ellipses protect the same total area. Each stripe has aspect ratio five to one and the same area as each blob."></div>
+<p class="visual-takeaway">Compare representation first; test proposed shape mechanisms with additional evidence.</p>
+<p class="caption">Shape illustration, not the assignment's actual locations. Two parks per design, 500 km² each.</p>
+<aside class="notes">This motivates the blob-versus-stripe assignment, which reuses the metric sequence. Number and area can be equal while locations, orientations and environmental coverage differ. Long narrow parks may intersect different habitats, while compact parks have different edge-to-area geometry; neither statement predicts a universal winner. A one-off geographic comparison cannot isolate a causal effect of shape. Repeated placements, matched habitat and explicit models or measurements of the proposed mechanism would strengthen inference. The assignment's sampler has geographic range templates but no explicit edge, movement or survival processes.</aside>
+</section>
+
+<section id="discussion">
+<div class="kicker">Before opening the notebook</div>
+<h2>What would change your mind?</h2>
+<p class="question">One network captures more species. The other captures fewer species, but includes the only recorded population of a focal species.</p>
+<ul>
+<li>What is your conservation objective?</li>
+<li>Which metric helps, and what does it leave out?</li>
+<li>What observation would most strengthen your decision?</li>
+</ul>
+<aside class="notes">Give students a minute to discuss in pairs. Do not supply a universal correct reserve choice. Listen for a stated objective, a distinction between observed records and actual populations, and a practical evidence request. If students propose an endemic species, ask how its full range was determined. If they propose greater richness, ask whether sampling was comparable and which species are added. If they propose connectivity or lower extinction risk, ask what data measure that mechanism. Carry these questions into the lab recommendation.</aside>
+</section>
+
+<section id="sources-concepts">
+<div class="kicker">Further reading</div>
+<h2>Conservation and diversity concepts</h2>
+<ul class="source-list">
+<li><a href="https://doi.org/10.1126/science.191.4224.285">Simberloff &amp; Abele (1976). Island biogeography theory and conservation practice.</a> SLOSS motivation.</li>
+<li><a href="https://doi.org/10.1046/j.1523-1739.2003.02177.x">Semlitsch &amp; Bodie (2003). Biological criteria for buffer zones around wetlands and riparian habitats for amphibians and reptiles.</a> Life-cycle habitat.</li>
+<li><a href="https://doi.org/10.1111/j.2006.0030-1299.14714.x">Jost (2006). Entropy and diversity.</a> Effective species numbers.</li>
+<li><a href="https://doi.org/10.1046/j.1461-0248.2001.00230.x">Gotelli &amp; Colwell (2001). Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness.</a> Sampling and rarefaction.</li>
+<li><a href="https://doi.org/10.1111/2041-210X.12388">Baselga &amp; Leprieur (2015). Comparing methods to separate components of beta diversity.</a> Replacement versus subset patterns.</li>
+</ul>
+<aside class="notes">Sources support the conceptual explanations; numerical examples in the lecture are our own teaching examples, not extracted study results. SLOSS has a much larger literature than the short historical motivation here. The goal is to prepare an explicit representation comparison while retaining the biological limits of that comparison.</aside>
+</section>
+
+<section id="sources-methods">
+<div class="kicker">Further reading and figure provenance</div>
+<h2>Endemism, implementation and reproducibility</h2>
+<ul class="source-list">
+<li><a href="https://doi.org/10.1046/j.1365-2699.2001.00524.x">Crisp et al. (2001). Endemism in the Australian flora.</a> Weighted and corrected weighted endemism.</li>
+<li><a href="https://doi.org/10.1038/s41467-020-15921-6">Daru et al. (2020). Endemism patterns are scale dependent.</a> This week's discussion paper.</li>
+<li>SciPy documentation: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html">entropy</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.jaccard.html">jaccard</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.braycurtis.html">braycurtis</a></li>
+<li><a href="../labs/Lab10-CommunityComposition.ipynb">Lab10 notebook</a> · <a href="../data/ME_ImaginaryParks.md">Dataset notes</a></li>
+<li>Original figures: <a href="assets/Lecture10-build-figures.py">rebuild script</a> · <a href="assets/Lecture10-example-results.json">toy calculations and map input hash</a> · <a href="assets/Lecture10-figure-notes.md">figure notes</a></li>
+</ul>
+<aside class="notes">All animal icons, habitat drawings and comparison diagrams are original vector artwork created for teaching. No external illustrations or AI-generated raster artwork are used. All toy species, counts, patterns and reserve circles are invented. The two park maps are the only occurrence-data figures, and include the lab's generated records. The rarefaction curve is computed exactly from its stated toy counts. Rebuild scripts and provenance separate these examples from empirical research figures.</aside>
+</section>
+
+</div></div>
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/dist/plugin/highlight.js"></script>
+<script src="reveal.js/dist/plugin/notes.js"></script>
+<script>
+Reveal.initialize({
+ hash:true, controls:true, progress:true, center:false, slideNumber:"c/t",
+ width:1440, height:810, margin:0.03, transition:"fade", transitionSpeed:"fast",
+ plugins:[RevealHighlight,RevealNotes]
+});
+</script></body></html>
