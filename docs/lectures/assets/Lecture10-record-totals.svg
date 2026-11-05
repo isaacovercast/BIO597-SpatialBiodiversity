@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1296 500" role="img" aria-labelledby="title">
+<title id="title">Counts 10 5 5 and 20 10 10 have identical relative frequencies. Raw Bray Curtis is one third and normalized Bray Curtis is zero.</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#087e8b"/></marker></defs>
+<text x="330" y="40" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="33" font-weight="700" text-anchor="middle">Record counts</text>
+<text x="1000" y="40" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="33" font-weight="700" text-anchor="middle">Relative frequencies</text>
+<text x="20" y="155" fill="#52606d" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" text-anchor="start">X</text>
+<rect x="95" y="100" width="120" height="90" fill="#087e8b" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="155" y="157" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" text-anchor="middle">10</text>
+<rect x="215" y="100" width="60" height="90" fill="#c48d21" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="245" y="157" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" text-anchor="middle">5</text>
+<rect x="275" y="100" width="60" height="90" fill="#8660a4" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="305" y="157" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" text-anchor="middle">5</text>
+<rect x="790" y="100" width="220.0" height="90" fill="#087e8b" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="900.0" y="157" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" text-anchor="middle">0.50</text>
+<rect x="1010.0" y="100" width="110.0" height="90" fill="#c48d21" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="1065.0" y="157" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" text-anchor="middle">0.25</text>
+<rect x="1120.0" y="100" width="110.0" height="90" fill="#8660a4" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="1175.0" y="157" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" text-anchor="middle">0.25</text>
+<text x="20" y="310" fill="#52606d" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" text-anchor="start">Y</text>
+<rect x="95" y="255" width="240" height="90" fill="#087e8b" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="215" y="312" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" text-anchor="middle">20</text>
+<rect x="335" y="255" width="120" height="90" fill="#c48d21" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="395" y="312" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" text-anchor="middle">10</text>
+<rect x="455" y="255" width="120" height="90" fill="#8660a4" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="515" y="312" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="700" text-anchor="middle">10</text>
+<rect x="790" y="255" width="220.0" height="90" fill="#087e8b" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="900.0" y="312" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" text-anchor="middle">0.50</text>
+<rect x="1010.0" y="255" width="110.0" height="90" fill="#c48d21" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="1065.0" y="312" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" text-anchor="middle">0.25</text>
+<rect x="1120.0" y="255" width="110.0" height="90" fill="#8660a4" stroke="#f7f8f6" stroke-width="2" rx="0"/>
+<text x="1175.0" y="312" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" text-anchor="middle">0.25</text>
+<line x1="630" y1="215" x2="735" y2="215" stroke="#087e8b" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="340" y="440" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" text-anchor="middle">Bray–Curtis = 0.33</text>
+<text x="1010" y="440" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" text-anchor="middle">Bray–Curtis = 0</text>
+</svg>

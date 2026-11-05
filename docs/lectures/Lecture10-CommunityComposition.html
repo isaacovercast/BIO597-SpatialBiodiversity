@@ -196,11 +196,11 @@ entropy([28, 1, 1])     # 0.291</code></pre>
 
 <section id="endemism">
 <div class="kicker">A different conservation objective</div>
-<h2>Endemism means geographic restriction</h2>
-<div class="two-col"><div class="card"><h3>Full geographic range</h3><p>Is a species restricted to Maine, an island, or another named region?</p><p>Requires evidence about its distribution beyond the focal parks.</p></div><div class="card"><h3>Restriction in our sample</h3><p>In how many of these four parks has a species been recorded?</p><p>A useful proxy, with a much narrower interpretation.</p></div></div>
-<p class="callout">“Recorded only in Park 2” does not establish “endemic to Park 2.”</p>
-<p class="caption">Reference extent matters: <a href="https://doi.org/10.1038/s41467-020-15921-6">Daru et al. (2020)</a>, this week's discussion paper.</p>
-<aside class="notes">A species can be endemic to a broad region while common within that region. A species found in only one sampled park can also be widespread outside the park network. Daru and colleagues examined how endemism patterns depend on the scope and definition of the analysis. For today's lab, focus on explicitly naming the reference set; spatial aggregation and moving-window analyses belong to the later lab. We have occurrence frequencies in four unequal-area parks, not complete geographic range sizes. Use sample-exclusive and endemism proxy when interpreting these results.</aside>
+<h2>Rarity vs Range-restriction</h2>
+<div class="image-wide"><img class="image-chart" src="assets/Lecture10-endemism.svg" alt="A rare endemic species is illustrated by three green amphibian symbols confined to a small island. A rare but widely distributed species is illustrated by three purple symbols spread across a large mainland range. Both have low abundance, but their geographic range sizes differ."></div>
+<p class="visual-takeaway">Both have low abundance; only the island species is range-restricted.</p>
+<p class="caption">Which species would you favor in conservation efforts and why?</p>
+<aside class="notes">Both hypothetical species are uncommon where they occur. Sparse symbols illustrate low abundance on both sides; they are not estimates of total population sizes. The green species' entire range is confined to a small island, so it is both rare and endemic to that island. The purple species is also rare, but occurs at widely separated places across a broad mainland range. Rarity in abundance and restriction in geographic range are different properties. A range-restricted species could also be locally abundant; that combination is not illustrated here. The shaded areas are assumed ranges for these invented examples, not distributions inferred from three observations. In the lab, few occurrence records do not establish low population abundance, and occurrence in only one sampled park does not establish geographic endemism. Daru and colleagues examined how endemism patterns depend on the scope and definition of the analysis. Name the geographic reference explicitly when interpreting range restriction.</aside>
 </section>
 
 <section id="weighted-endemism">
@@ -225,26 +225,16 @@ entropy([28, 1, 1])     # 0.291</code></pre>
 <aside class="notes">No. Adding a species with a weight below the current average increases WE while decreasing CWE. Park 2 has the larger sum, but Park 3 has a larger average restriction weight. Neither is a universally superior conservation score. CWE is not an independent estimate of range rarity and does not automatically remove sampling bias. The worked values use the same matrix as the preceding slides. Crisp et al. 2001 introduced the correction to help distinguish endemism patterns from species richness; keep that distinction tied to the conservation objective.</aside>
 </section>
 
-<section id="reference-extent">
-<div class="kicker">Keep the reference explicit</div>
-<h2>New records outside the network change the weight</h2>
-<div class="image-wide"><img class="image-chart" src="assets/Lecture10-extent.svg" alt="Species C is initially recorded in one of four parks, giving weight one. Three additional surveyed parks also record C, giving occupancy four and weight one quarter in the expanded reference."></div>
-<p class="visual-takeaway">The focal park did not lose C. Our knowledge of C's distribution changed.</p>
-<p class="caption">Hypothetical additional surveys. Endemism depends on the stated reference: <a href="https://doi.org/10.1038/s41467-020-15921-6">Daru et al. (2020)</a>.</p>
-<aside class="notes">The left view has four surveyed parks; the right adds three parks, all recording C. Its observed occupancy therefore increases from one to four. The denominator is occupied parks, not the total number of parks: its new weight is one quarter, not one seventh. A newly surveyed park with no C record would not by itself change C's inverse occupancy. This is an illustration of changing information and reference extent. It does not establish a full geographic range. Keep the reference fixed when comparing WE or CWE values within an analysis.</aside>
-</section>
-
 <section id="rarity">
 <div class="kicker">Rarity is not a single property</div>
 <h2>Few records and narrow ranges are different</h2>
 <table><thead><tr><th>Toy species</th><th>Total records</th><th>Parks recorded</th><th>Record-rare?</th></tr></thead><tbody>
 <tr><td>A</td><td>32</td><td>4</td><td>No</td></tr>
-<tr><td>C</td><td>3</td><td>1</td><td>Yes</td></tr>
+<tr><td>C</td><td>3</td><td>3</td><td>Yes</td></tr>
 <tr><td>D</td><td>12</td><td>1</td><td>No</td></tr>
 <tr><td>E</td><td>2</td><td>1</td><td>Yes</td></tr>
 </tbody></table>
-<p class="small">Lab definition: <strong>record-rare = at most five records</strong> across all four parks.</p>
-<p class="callout">Reporting rarity is not population rarity, geographic restriction, or threat status.</p>
+<p class="callout">Species 'C' is rare but widespread. Species 'D' is abundand but localized. Species 'E' is both rare and range-restricted.</p>
 <aside class="notes">C and D are both sample-exclusive, but only C is record-rare. E also meets both conditions. A hypothetical species with one record in every park would be record-rare while having the maximum park occupancy, demonstrating the opposite combination. The threshold of five is a teaching choice, not a biological boundary or conservation designation. A low count might reflect low abundance, poor detectability, little reporting or the simulation's allocation. Some invented species have only a few points by design. Ask students how changing the threshold to ten would affect the species counted and whether that should change their conservation recommendation.</aside>
 </section>
 
@@ -262,54 +252,6 @@ entropy([28, 1, 1])     # 0.291</code></pre>
 <aside class="notes">Avoid combining all indices into an unexplained score. A strong recommendation states its objective, identifies species gained or missed, reports numerical evidence and explains uncertainty. If one strategy has greater gamma while another has higher CWE, that is not a mathematical contradiction. It is a choice between total representation and average restriction under the chosen proxy. A focal-species protection objective could justify a different choice again. The records cannot tell us which outcome the community or society should value most.</aside>
 </section>
 
-<section id="persistence">
-<div class="kicker">Representation is one part of conservation</div>
-<h2>Presence today does not guarantee persistence</h2>
-<ul>
-<li>Does each park contain breeding and nonbreeding habitat?</li>
-<li>Can populations recruit, survive and move among suitable sites?</li>
-<li>How do disturbance, disease, land use and future climate affect them?</li>
-</ul>
-<p class="callout">A diversity table supports a reserve comparison. A real decision also needs habitat and demographic evidence.</p>
-<p class="caption">Life-cycle habitat motivation: <a href="https://doi.org/10.1046/j.1523-1739.2003.02177.x">Semlitsch &amp; Bodie (2003)</a>.</p>
-<aside class="notes">Return to the pond and forest example. Occurrences within a proposed boundary do not establish protection of every habitat needed to complete a life cycle, a viable population, or functional connectivity. These are candidate questions for field research, not effects estimated by the exercise. Students should be able to name a concrete next measurement, such as repeated breeding surveys, survival or recruitment estimates, habitat condition, or movement across roads. The imaginary polygons and empirical-template simulation intentionally isolate a tractable representation exercise.</aside>
-</section>
-
-<section id="lab-workflow">
-<div class="kicker">Into Lab10</div>
-<h2>From a reserve map to an ecological argument</h2>
-<ol class="lab-steps">
-<li>Map the parks and check the area budget.</li>
-<li>Build the park × species community matrix.</li>
-<li>Compare diversity, complementarity and dissimilarity.</li>
-<li>Check record totals, rarity and restriction.</li>
-<li>Recommend a strategy and name the missing evidence.</li>
-</ol>
-<p class="caption"><a href="../labs/Lab10-CommunityComposition.ipynb">Open Lab10</a> · <a href="../data/ME_ImaginaryParks.md">Dataset construction and assumptions</a></p>
-<aside class="notes">Keep implementation simple: reuse the diversity and restriction functions, use scipy.stats.entropy for Shannon, and scipy.spatial.distance.jaccard and braycurtis for the two dissimilarities. The park labels are already stored on the points, so no runtime spatial join is needed. Pool the three small-park count rows before computing their gamma richness; do not sum their richnesses. Students should preserve species identity in their interpretation rather than discussing only scalar indices. This lecture deliberately leaves the lab's metric results for students to discover.</aside>
-</section>
-
-<section id="shape-extension">
-<div class="kicker">A related conservation question</div>
-<h2>What if we hold park number equal and change shape?</h2>
-<div class="image-wide"><img class="image-chart" src="assets/Lecture10-shapes.svg" alt="Two compact blobs and two elongated ellipses protect the same total area. Each stripe has aspect ratio five to one and the same area as each blob."></div>
-<p class="visual-takeaway">Compare representation first; test proposed shape mechanisms with additional evidence.</p>
-<p class="caption">Shape illustration, not the assignment's actual locations. Two parks per design, 500 km² each.</p>
-<aside class="notes">This motivates the blob-versus-stripe assignment, which reuses the metric sequence. Number and area can be equal while locations, orientations and environmental coverage differ. Long narrow parks may intersect different habitats, while compact parks have different edge-to-area geometry; neither statement predicts a universal winner. A one-off geographic comparison cannot isolate a causal effect of shape. Repeated placements, matched habitat and explicit models or measurements of the proposed mechanism would strengthen inference. The assignment's sampler has geographic range templates but no explicit edge, movement or survival processes.</aside>
-</section>
-
-<section id="discussion">
-<div class="kicker">Before opening the notebook</div>
-<h2>What would change your mind?</h2>
-<p class="question">One network captures more species. The other captures fewer species, but includes the only recorded population of a focal species.</p>
-<ul>
-<li>What is your conservation objective?</li>
-<li>Which metric helps, and what does it leave out?</li>
-<li>What observation would most strengthen your decision?</li>
-</ul>
-<aside class="notes">Give students a minute to discuss in pairs. Do not supply a universal correct reserve choice. Listen for a stated objective, a distinction between observed records and actual populations, and a practical evidence request. If students propose an endemic species, ask how its full range was determined. If they propose greater richness, ask whether sampling was comparable and which species are added. If they propose connectivity or lower extinction risk, ask what data measure that mechanism. Carry these questions into the lab recommendation.</aside>
-</section>
-
 <section id="sources-concepts">
 <div class="kicker">Further reading</div>
 <h2>Conservation and diversity concepts</h2>
@@ -321,19 +263,6 @@ entropy([28, 1, 1])     # 0.291</code></pre>
 <li><a href="https://doi.org/10.1111/2041-210X.12388">Baselga &amp; Leprieur (2015). Comparing methods to separate components of beta diversity.</a> Replacement versus subset patterns.</li>
 </ul>
 <aside class="notes">Sources support the conceptual explanations; numerical examples in the lecture are our own teaching examples, not extracted study results. SLOSS has a much larger literature than the short historical motivation here. The goal is to prepare an explicit representation comparison while retaining the biological limits of that comparison.</aside>
-</section>
-
-<section id="sources-methods">
-<div class="kicker">Further reading and figure provenance</div>
-<h2>Endemism, implementation and reproducibility</h2>
-<ul class="source-list">
-<li><a href="https://doi.org/10.1046/j.1365-2699.2001.00524.x">Crisp et al. (2001). Endemism in the Australian flora.</a> Weighted and corrected weighted endemism.</li>
-<li><a href="https://doi.org/10.1038/s41467-020-15921-6">Daru et al. (2020). Endemism patterns are scale dependent.</a> This week's discussion paper.</li>
-<li>SciPy documentation: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html">entropy</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.jaccard.html">jaccard</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.braycurtis.html">braycurtis</a></li>
-<li><a href="../labs/Lab10-CommunityComposition.ipynb">Lab10 notebook</a> · <a href="../data/ME_ImaginaryParks.md">Dataset notes</a></li>
-<li>Original figures: <a href="assets/Lecture10-build-figures.py">rebuild script</a> · <a href="assets/Lecture10-example-results.json">toy calculations and map input hash</a> · <a href="assets/Lecture10-figure-notes.md">figure notes</a></li>
-</ul>
-<aside class="notes">All animal icons, habitat drawings and comparison diagrams are original vector artwork created for teaching. No external illustrations or AI-generated raster artwork are used. All toy species, counts, patterns and reserve circles are invented. The two park maps are the only occurrence-data figures, and include the lab's generated records. The rarefaction curve is computed exactly from its stated toy counts. Rebuild scripts and provenance separate these examples from empirical research figures.</aside>
 </section>
 
 </div></div>

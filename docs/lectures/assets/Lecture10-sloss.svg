@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1296 500" role="img" aria-labelledby="title">
+<title id="title">Equal protected area: one 1000 square kilometer park or three parks of 400, 300 and 300 square kilometers.</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#087e8b"/></marker></defs>
+<text x="280" y="45" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="35" font-weight="700" text-anchor="middle">Single large</text>
+<text x="950" y="45" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="35" font-weight="700" text-anchor="middle">Several small</text>
+<ellipse cx="280" cy="250" rx="165" ry="165" fill="#e6eeed" stroke="#087e8b" stroke-width="3"/>
+<text x="280" y="245" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="37" font-weight="700" text-anchor="middle">1,000 km²</text>
+<text x="280" y="290" fill="#52606d" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="400" text-anchor="middle">one park</text>
+<ellipse cx="825" cy="185" rx="104.35516278555652" ry="104.35516278555652" fill="#f3e7d9" stroke="#d95d39" stroke-width="3"/>
+<text x="825" y="195" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">400 km²</text>
+<ellipse cx="1080" cy="185" rx="90.3742219883524" ry="90.3742219883524" fill="#f3e7d9" stroke="#d95d39" stroke-width="3"/>
+<text x="1080" y="195" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">300 km²</text>
+<ellipse cx="950" cy="350" rx="90.3742219883524" ry="90.3742219883524" fill="#f3e7d9" stroke="#d95d39" stroke-width="3"/>
+<text x="950" y="360" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">300 km²</text>
+<text x="648" y="265" fill="#52606d" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="400" text-anchor="middle">or</text>
+<text x="280" y="480" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" text-anchor="middle">1,000 km² total</text>
+<text x="950" y="480" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" text-anchor="middle">1,000 km² total</text>
+</svg>

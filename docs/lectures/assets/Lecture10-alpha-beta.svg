@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1296 500" role="img" aria-labelledby="title">
+<title id="title">Three parks have richness three each. Identical species lists give pooled richness three and beta one. Complementary lists give pooled richness seven and beta seven thirds.</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#087e8b"/></marker></defs>
+<text x="24" y="35" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" text-anchor="start">Repeated communities</text>
+<rect x="38" y="65" width="270" height="125" fill="#ffffff" stroke="#ccd3d7" stroke-width="2" rx="18"/>
+<g transform="translate(96 119) scale(0.8)" fill="#087e8b" stroke="#087e8b" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="96" y="154.2" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">A</text>
+<g transform="translate(172 119) scale(0.8)" fill="#c48d21" stroke="#c48d21" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="172" y="154.2" fill="#c48d21" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">B</text>
+<g transform="translate(248 119) scale(0.8)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="248" y="154.2" fill="#8660a4" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">C</text>
+<rect x="333" y="65" width="270" height="125" fill="#ffffff" stroke="#ccd3d7" stroke-width="2" rx="18"/>
+<g transform="translate(391 119) scale(0.8)" fill="#087e8b" stroke="#087e8b" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="391" y="154.2" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">A</text>
+<g transform="translate(467 119) scale(0.8)" fill="#c48d21" stroke="#c48d21" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="467" y="154.2" fill="#c48d21" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">B</text>
+<g transform="translate(543 119) scale(0.8)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="543" y="154.2" fill="#8660a4" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">C</text>
+<rect x="628" y="65" width="270" height="125" fill="#ffffff" stroke="#ccd3d7" stroke-width="2" rx="18"/>
+<g transform="translate(686 119) scale(0.8)" fill="#087e8b" stroke="#087e8b" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="686" y="154.2" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">A</text>
+<g transform="translate(762 119) scale(0.8)" fill="#c48d21" stroke="#c48d21" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="762" y="154.2" fill="#c48d21" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">B</text>
+<g transform="translate(838 119) scale(0.8)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="838" y="154.2" fill="#8660a4" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">C</text>
+<text x="1030" y="92" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="400" text-anchor="middle">Mean α = 3</text>
+<text x="1030" y="142" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">Pooled γ = 3</text>
+<text x="1030" y="192" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">β = 1.00</text>
+<text x="24" y="280" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" text-anchor="start">Complementary communities</text>
+<rect x="38" y="310" width="270" height="125" fill="#ffffff" stroke="#ccd3d7" stroke-width="2" rx="18"/>
+<g transform="translate(96 364) scale(0.8)" fill="#087e8b" stroke="#087e8b" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="96" y="399.2" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">A</text>
+<g transform="translate(172 364) scale(0.8)" fill="#c48d21" stroke="#c48d21" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="172" y="399.2" fill="#c48d21" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">B</text>
+<g transform="translate(248 364) scale(0.8)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="248" y="399.2" fill="#8660a4" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">C</text>
+<rect x="333" y="310" width="270" height="125" fill="#ffffff" stroke="#ccd3d7" stroke-width="2" rx="18"/>
+<g transform="translate(391 364) scale(0.8)" fill="#087e8b" stroke="#087e8b" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="391" y="399.2" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">A</text>
+<g transform="translate(467 364) scale(0.8)" fill="#d95d39" stroke="#d95d39" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="467" y="399.2" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">D</text>
+<g transform="translate(543 364) scale(0.8)" fill="#3f6ca8" stroke="#3f6ca8" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="543" y="399.2" fill="#3f6ca8" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">E</text>
+<rect x="628" y="310" width="270" height="125" fill="#ffffff" stroke="#ccd3d7" stroke-width="2" rx="18"/>
+<g transform="translate(686 364) scale(0.8)" fill="#087e8b" stroke="#087e8b" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="686" y="399.2" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">A</text>
+<g transform="translate(762 364) scale(0.8)" fill="#527b3d" stroke="#527b3d" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="762" y="399.2" fill="#527b3d" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">F</text>
+<g transform="translate(838 364) scale(0.8)" fill="#ad5476" stroke="#ad5476" stroke-width="3" stroke-linecap="round">
+<path d="M-12 2 L-25 14 L-30 7 M12 2 L25 14 L30 7 M-9 -7 L-21 -14 M9 -7 L21 -14" fill="none"/>
+<ellipse cy="1" rx="15" ry="17"/><ellipse cy="-14" rx="14" ry="9"/>
+<circle cx="-8" cy="-18" r="3" fill="white" stroke="none"/><circle cx="8" cy="-18" r="3" fill="white" stroke="none"/>
+</g>
+<text x="838" y="399.2" fill="#ad5476" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" text-anchor="middle">G</text>
+<text x="1030" y="337" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="400" text-anchor="middle">Mean α = 3</text>
+<text x="1030" y="387" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">Pooled γ = 7</text>
+<text x="1030" y="437" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">β = 2.33</text>
+</svg>

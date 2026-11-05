@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1296 500" role="img" aria-labelledby="title">
+<title id="title">Two 500 square kilometer compact blobs and two equal area elliptical stripes, with aspect ratio five to one, motivate a separate shape comparison.</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#087e8b"/></marker></defs>
+<text x="320" y="45" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="35" font-weight="700" text-anchor="middle">Two blobs</text>
+<text x="990" y="45" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="35" font-weight="700" text-anchor="middle">Two stripes</text>
+<ellipse cx="200" cy="190" rx="100" ry="100" fill="#e6eeed" stroke="#087e8b" stroke-width="3"/>
+<ellipse cx="440" cy="340" rx="100" ry="100" fill="#e6eeed" stroke="#087e8b" stroke-width="3"/>
+<ellipse cx="980" cy="160" rx="223.60679774997897" ry="44.72135954999579" fill="#f3e7d9" stroke="#d95d39" stroke-width="3"/>
+<ellipse cx="980" cy="340" rx="223.60679774997897" ry="44.72135954999579" fill="#f3e7d9" stroke="#d95d39" stroke-width="3"/>
+<text x="320" y="480" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">1,000 km² total</text>
+<text x="990" y="480" fill="#d95d39" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="700" text-anchor="middle">1,000 km² total</text>
+</svg>

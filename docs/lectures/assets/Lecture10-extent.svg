@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1296 500" role="img" aria-labelledby="title">
+<title id="title">A species recorded in only one of four surveyed parks is subsequently recorded in three additional parks. Its inverse occupancy weight changes from one to one quarter.</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#087e8b"/></marker></defs>
+<text x="300" y="45" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" text-anchor="middle">Four-park reference</text>
+<ellipse cx="100" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<g transform="translate(100 150) scale(0.7)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<ellipse cx="230" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<ellipse cx="360" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<ellipse cx="490" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<text x="300" y="390" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="400" text-anchor="middle">C recorded in 1 park</text>
+<text x="300" y="460" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="700" text-anchor="middle">Weight = 1</text>
+<text x="970" y="45" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" text-anchor="middle">Expanded reference</text>
+<ellipse cx="770" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<g transform="translate(770 150) scale(0.7)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<ellipse cx="900" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<ellipse cx="1030" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<ellipse cx="1160" cy="150" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<ellipse cx="770" cy="285" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<g transform="translate(770 285) scale(0.7)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<ellipse cx="900" cy="285" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<g transform="translate(900 285) scale(0.7)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<ellipse cx="1030" cy="285" rx="48" ry="45" fill="white" stroke="#ccd3d7" stroke-width="3"/>
+<g transform="translate(1030 285) scale(0.7)" fill="#8660a4" stroke="#8660a4" stroke-width="3" stroke-linecap="round">
+<path d="M0 14 Q26 26 30 3 Q18 18 3 7" stroke="none"/>
+<path d="M-6 -8 L-20 -16 M6 -8 L20 -16 M-6 9 L-20 17 M6 9 L20 17" fill="none"/>
+<ellipse rx="8" ry="19"/><ellipse cy="-22" rx="10" ry="9"/>
+<circle cx="-4" cy="-24" r="2" fill="white" stroke="none"/><circle cx="4" cy="-24" r="2" fill="white" stroke="none"/>
+</g>
+<text x="970" y="390" fill="#18212b" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="400" text-anchor="middle">C recorded in 4 parks</text>
+<text x="970" y="460" fill="#087e8b" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="700" text-anchor="middle">Weight = 0.25</text>
+<line x1="580" y1="220" x2="670" y2="220" stroke="#087e8b" stroke-width="4" marker-end="url(#arrow)"/>
+</svg>

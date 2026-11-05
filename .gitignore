@@ -9,5 +9,8 @@ docs/labs/bioclim
 *.geojson
 !docs/data/amphibians+bioclim.geojson
 !docs/data/amphibians.geojson
+!docs/data/ME_ImaginaryParks.geojson
+!docs/data/ME_BlobStripeParks.geojson
 docs/labs/_*.ipynb
 docs/labs/EasternSnakes/*
+docs/labs/outputs/Lab10/

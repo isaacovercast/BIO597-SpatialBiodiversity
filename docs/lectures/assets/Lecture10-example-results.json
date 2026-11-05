@@ -1,0 +1,72 @@
+{
+  "map": {
+    "dataset": "docs/data/ME_ImaginaryParks.geojson",
+    "sha256": "642533fb74f1987c8262f1fe1b1aba39006b622ef89e75b299f9b9ef6fc19cbc",
+    "records": 1500,
+    "original_records": 846,
+    "imaginary_species": 50,
+    "species": 67
+  },
+  "rarefaction": {
+    "A": [
+      25,
+      25,
+      25,
+      25
+    ],
+    "B": [
+      195,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "method": "exact hypergeometric expectation; uniform draws without replacement",
+    "common_n": 100,
+    "expected_A": 4.0,
+    "expected_B": 3.5
+  },
+  "toy_matrix": [
+    [
+      8,
+      4,
+      0,
+      0,
+      0
+    ],
+    [
+      8,
+      4,
+      3,
+      0,
+      0
+    ],
+    [
+      8,
+      0,
+      0,
+      12,
+      0
+    ],
+    [
+      8,
+      0,
+      0,
+      0,
+      2
+    ]
+  ],
+  "even_counts": [
+    10,
+    10,
+    10
+  ],
+  "dominated_counts": [
+    28,
+    1,
+    1
+  ],
+  "jaccard_example": 0.5,
+  "bray_example": 0.7
+}
