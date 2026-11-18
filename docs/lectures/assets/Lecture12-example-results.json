@@ -1,0 +1,29 @@
+{
+  "maine_sites": 107,
+  "maine_functional_sites": 99,
+  "maine_traits": 16,
+  "community_pca_variance": [
+    0.5108658209737509,
+    0.3639894496672882
+  ],
+  "species_pca_variance": [
+    0.5629380396782693,
+    0.3116090136534947
+  ],
+  "selected_predictors": [
+    "latitude",
+    "bio_6",
+    "habitat_developed"
+  ],
+  "mean_length_latitude_spearman": -0.06433833771123189,
+  "null_extremes": {
+    "10_8": {
+      "fdis": 1.7858217944270285,
+      "ses": -2.40411453934667
+    },
+    "3_10": {
+      "fdis": 2.3217868957855403,
+      "ses": 1.2272281214053962
+    }
+  }
+}
