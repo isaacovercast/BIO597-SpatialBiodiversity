@@ -1,6 +1,6 @@
 # Lecture 12: figure provenance
 
-The lecture contains 27 slides. Figures combine course illustrations,
+Figures combine course illustrations,
 public-domain species photographs, and calculations from the supplied prepared data. The California analytical results
 are reserved for the instructor answer key; the lecture uses Maine results and
 a California trait-coverage map.
@@ -18,8 +18,10 @@ This reads `docs/data/Lab12/ME_30KM_grid.geojson`,
 files; and the existing state boundaries. It does not fetch data or change the
 notebooks. PNGs and `Lecture12-example-results.json` are written beside this file.
 The frog illustration and downloaded species photographs are retained as separate
-assets; the rebuild script does not overwrite them. Visible figure captions have
-been removed from the lecture, with their details retained in speaker notes.
+assets; the rebuild script does not overwrite them. Visible figure captions and
+lecture `<aside>` elements have been removed. This file retains figure provenance.
+The correlation figure is extracted from the notebook's saved Step 4 output;
+rerun that notebook cell and save the notebook before rebuilding to update it.
 
 ## Frog illustration and species photographs
 
@@ -78,10 +80,13 @@ animal size scale:
   not empirical p-values or tests of a unique ecological mechanism.
 - **predictors:** prepared midpoint latitude, BIO1 mean temperature, and the
   mapped upland forest area fraction. See the lab for the source habitat classes.
-- **correlations:** mean maximum length uses descriptive Spearman correlation;
-  raw FDis and SES use descriptive Pearson correlation, on the same retained
-  cells. The current lab uses raw FDis in its predictor cell, while the assignment
-  specifically requests SES; the lecture distinguishes these responses.
+- **correlations:** the exact saved six-panel output from Lab12's code cell under
+  “Step 4. Evaluate correlations between FDis and environmental predictors.” All
+  panels show raw functional dispersion against a predictor: latitude, BIO1,
+  BIO6, BIO10, upland forest fraction, and developed fraction. The cell uses
+  Pearson correlations throughout, with pairwise missing-value removal. These
+  are the notebook's displayed communities, not the lecture builder's separate
+  coverage-filtered subset. No community mean trait or SES response is plotted.
 - **two-pcas, synthesis:** species PCA summarizes standardized log trait profiles;
   community PCA separately standardizes the five log geometric mean traits across
   eligible cells. Map and scatter colors use min–max scaled community PC1 and PC2
@@ -108,14 +113,17 @@ course datasets. Colored rows in the shuffle illustration move as intact profile
 
 The added biological-mechanism figures are also original conceptual illustrations:
 
-- **filtering-hypothesis:** six invented larval development times (20, 35, 50,
-  65, 80, and 95 days). Each local pond contains three species. The rapidly
-  drying pond retains only profiles able to complete development within the
-  illustrated 55-day water period. Larval development time and pond hydroperiod
-  are not supplied lab columns; the diagram motivates a follow-up mechanism
-  rather than asserting an observed Maine result. Open circles are unselected
-  regional profiles, blue shading is the available development window, and the
-  orange segment shows local trait range.
+- **filtering-hypothesis:** two hypothetical assembly scenarios start from the
+  same nine-species regional body-size distribution. Environmental filtering
+  retains three similarly sized species; interspecific competition favors three
+  widely separated strategies under a resource-partitioning hypothesis. Both
+  local communities contain three species. Dotted lines track the selected
+  species without changing their trait values; the lower colored segment shows
+  local trait range. Sizes are schematic, not measured Maine values. These are
+  alternative predictions, not universal consequences or diagnoses of either
+  process: competitive dominance can also produce clustering. The diagram
+  concerns differences among species, not intraspecific variation or an assumed
+  evolutionary change. See Kraft, Godoy & Levine (2015) below.
 - **competition-resources:** Gaussian resource-use curves for three hypothetical
   species illustrate overlap versus partitioning along a prey-size axis. The
   curves are neither measured diets nor estimates of interaction strengths.

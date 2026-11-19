@@ -3,6 +3,7 @@
 Run: MPLCONFIGDIR=/tmp/lecture12-mpl python docs/lectures/assets/Lecture12-build-figures.py
 """
 from pathlib import Path
+import base64
 import json
 import numpy as np
 import pandas as pd
@@ -198,15 +199,13 @@ for ax,col,title in zip(axes,['latitude','bio_1','habitat_upland_forest'],['Midp
     backdrop(ax,maine,me);me.plot(ax=ax,column=col,legend=True,cmap='viridis');ax.set_title(title,fontsize=16)
 save(fig,'predictors')
 
-fig,axes=plt.subplots(1,3,figsize=(13,4.2),layout='constrained')
-ys=[10**mean_logs.MaxBody,functional.fdis,functional.ses]
-ys=[y.reindex(functional.index) for y in ys]
-for ax,y,label,method in zip(axes,ys,['Typical maximum length (mm)','Functional dispersion','FDis relative to null (SD)'],['spearman','pearson','pearson']):
-    r=functional.latitude.corr(y,method=method)
-    ax.scatter(functional.latitude,y,color=TEAL,s=30,alpha=.75)
-    symbol='ρ' if method=='spearman' else 'r'
-    ax.set(xlabel='Midpoint latitude (°N)',ylabel=label,title=f'{symbol} = {r:.2f}')
-save(fig,'correlations')
+# Reuse the exact saved six-panel Pearson/FDis figure from Lab12 Step 4.
+notebook = json.loads((ROOT / 'docs/labs/Lab12-SpatialTraitVariation.ipynb').read_text())
+correlation_cell = next(cell for cell in notebook['cells']
+                        if 'Fdis_corrs = {}' in ''.join(cell.get('source', [])))
+correlation_plot = next(output['data']['image/png'] for output in correlation_cell['outputs']
+                        if 'image/png' in output.get('data', {}))
+(OUT / 'Lecture12-correlations.png').write_bytes(base64.b64decode(correlation_plot))
 
 fig,axes=plt.subplots(1,2,figsize=(12,4.8),layout='constrained')
 axes[0].scatter(species_scores.PC1,species_scores.PC2,color=TEAL,s=70)
@@ -285,27 +284,25 @@ axes[2].set(xlabel='Recorded species richness', ylabel='Functional dispersion',
 axes[2].title.set_fontsize(15)
 save(fig, 'richness-function')
 
-# A drying-pond hypothesis, with the same richness in both local communities.
-fig = plt.figure(figsize=(13, 5.3), layout='constrained')
-grid = fig.add_gridspec(2, 2, height_ratios=[.8, 1.2])
-pool_ax = fig.add_subplot(grid[0, :])
-pond_axes = [fig.add_subplot(grid[1, i]) for i in range(2)]
-pool = np.array([20, 35, 50, 65, 80, 95])
-pool_ax.scatter(pool, np.zeros(6), s=180, color=TEAL, zorder=3)
-pool_ax.set(title='Regional pool: six larval development strategies', xlim=(10, 105),
-            ylim=(-.3, .3), yticks=[], xticks=pool)
-pool_ax.spines[['left', 'bottom']].set_visible(False)
-for ax, selected, title, water in zip(
-        pond_axes, [np.array([20, 50, 95]), np.array([20, 35, 50])],
-        ['Long-lasting pond', 'Pond dries after 55 days'], [105, 55]):
-    ax.axvspan(10, water, color='#d9eaf0', zorder=0)
-    if water < 100:
-        ax.axvline(water, color=CORAL, lw=2, ls='--')
-    ax.scatter(pool, np.full(6, .25), s=170, facecolors='none', edgecolors='#b3bbbf', lw=2)
-    ax.scatter(selected, np.full(3, .25), s=180, color=TEAL, zorder=3)
-    ax.plot([selected.min(), selected.max()], [-.12, -.12], color=CORAL, lw=5)
-    ax.set(title=title, xlim=(10, 105), ylim=(-.3, .65), yticks=[],
-           xlabel='Larval development time (days)', xticks=[20, 50, 80])
+# Contrasting assembly hypotheses, with three coexisting species in each panel.
+fig, axes = plt.subplots(1, 2, figsize=(13, 4.8), layout='constrained')
+pool = np.arange(1, 10)
+for ax, selected, title, mechanism, color in zip(
+        axes, [np.array([4, 5, 6]), np.array([1, 5, 9])],
+        ['Environmental filtering', 'Interspecific competition'],
+        ['Similar abiotic tolerances', 'Different resource-use strategies'], [TEAL, CORAL]):
+    ax.scatter(pool, np.full(9, 1.6), s=120, color='#b3bbbf', zorder=3)
+    for value in selected:
+        ax.plot([value, value], [.35, 1.6], color=color, alpha=.35, lw=1.5, ls='--')
+    ax.scatter(selected, np.full(3, .35), s=200, color=color, zorder=4)
+    ax.plot([selected.min(), selected.max()], [.06, .06], color=color, lw=5)
+    ax.text(5, 1.96, 'Regional species pool', ha='center', fontsize=15, color=MUTED)
+    ax.text(5, 1.05, mechanism, ha='center', fontsize=15, color=color,
+            bbox={'facecolor': PAPER, 'edgecolor': 'none', 'pad': 4})
+    ax.text(5, -.3, 'Three coexisting species', ha='center', fontsize=15)
+    ax.set(title=title, xlim=(.4, 9.6), ylim=(-.55, 2.2), yticks=[],
+           xlabel='Body size', xticks=[1, 5, 9], xticklabels=['Small', 'Medium', 'Large'])
+    ax.title.set_fontsize(20)
     ax.spines['left'].set_visible(False)
 save(fig, 'filtering-hypothesis')
 

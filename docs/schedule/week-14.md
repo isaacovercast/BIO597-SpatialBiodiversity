@@ -1,5 +1,9 @@
 # Week 14: Synthesis: Biodiversity Under Environmental Change
 
+## Icebreaker
+
+What is your secret talent?
+
 ## Student Evaluation of Teaching
 
 [Please fill the course evaluation form.](https://go.blueja.io/t0ktF96UTUCHFATR_rtPDQ)
